@@ -6,7 +6,6 @@ on:
 permissions:
   contents: write
   pull-requests: write
-  workflows: write  # Allows workflow modifications
 jobs:
   release-please:
     runs-on: ubuntu-latest
@@ -19,7 +18,7 @@ jobs:
       - uses: actions/checkout@v4
         if: ${{ steps.release.outputs.release_created }}
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}  # Use the token with write access
+          token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
       - name: Create major.minor branch
         if: ${{ steps.release.outputs.release_created && steps.release.outputs.patch == '0' }}
