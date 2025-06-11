@@ -1,0 +1,16 @@
+#include "charybdis_4x6.dtsi"
+
+/ {
+    chosen {
+        zmk,kscan = &kscan0;
+    };
+
+    kscan0: kscan {
+        compatible = "zmk,kscan-gpio-matrix";
+        rows = <5>;
+        cols = <6>;
+        // Define pin mappings based on your Nice!Nano PCB (e.g., row0_pin = <&gpio0 0>)
+        // Example: row0_pin = <&gpio0 0>; row1_pin = <&gpio0 1>; etc.
+        // Consult Charybdis schematic for exact pins
+    };
+};
