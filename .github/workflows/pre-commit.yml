@@ -7,12 +7,16 @@ on:
   pull_request:
     branches:
       - main
+permissions:
+  contents: write  # Ensure write access for auto-commits
+  pull-requests: write
 jobs:
   pre-commit:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}  # Use the token with write access
           fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
