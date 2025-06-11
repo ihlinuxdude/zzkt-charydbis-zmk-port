@@ -1,0 +1,23 @@
+#include "charybdis_4x6.dtsi"
+
+/ {
+    chosen {
+        zmk,kscan = &kscan0;
+        zmk,pointers = &pmw3610;
+    };
+
+    kscan0: kscan {
+        compatible = "zmk,kscan-gpio-matrix";
+        rows = <5>;
+        cols = <6>;
+        // Define pin mappings based on your Nice!Nano PCB
+        // Example: row0_pin = <&gpio0 0>; row1_pin = <&gpio0 1>; etc.
+    };
+
+    pmw3610: pmw3610 {
+        compatible = "zmk,pmw3610";
+        label = "PMW3610";
+        // Configure SPI pins based on your Nice!Nano (e.g., spi_dev = &spi1; sclk_pin = <&gpio0 2>)
+        // Consult Charybdis schematic for exact pins
+    };
+};
